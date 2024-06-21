@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ProductOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductOrderController extends Controller
 {
@@ -13,6 +16,10 @@ class ProductOrderController extends Controller
     public function index()
     {
         //
+        $my_orders = ProductOrder::where('creator_id', Auth::id())->get();
+        return view('admin.product_orders.index', [
+            'my_orders' => $my_orders
+        ]);
     }
 
     /**

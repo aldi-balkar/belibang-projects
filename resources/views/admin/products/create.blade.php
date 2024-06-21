@@ -66,14 +66,11 @@
                         <x-input-error :messages="$errors->get('category')" class="mt-2" />
                     </div>
 
-                     <!-- About -->
-                     <div class="mt-4">
+                    <div class="mt-4">
                         <x-input-label for="about" :value="__('about')" />
-                        <textarea name="about" id="about" class="w-full py-3 pl-5 border">
-                        </textarea>
-                        <x-input-error :messages="$errors->get('about')" class="mt-2" />
+                        <textarea name="about" id="about" class="w-full py-3 pl-5 border"></textarea>
+                        <x-input-error :messages="$errors->get('category')" class="mt-2" />
                     </div>
-                    
             
                     <div class="flex items-center justify-end mt-4">
                         <x-primary-button class="ms-4">
