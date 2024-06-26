@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/transactions', [ProductOrderController::class, 'transactions'])->name('product_orders.transactions');
         Route::get('/transactions/details/{productOrder}', [ProductOrderController::class, 'transactions_details'])->name('product_orders.transactions.details');
 
+        Route::get('/download/file/{productOrder}', [ProductOrderController::class, 'download_file'])->name('product_orders.download')->middleware('throttle:1,1');
+
     });
 
 });
