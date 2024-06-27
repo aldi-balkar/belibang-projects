@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/transactions/details/{productOrder}', [ProductOrderController::class, 'transactions_details'])->name('product_orders.transactions.details');
 
         Route::get('/download/file/{productOrder}', [ProductOrderController::class, 'download_file'])->name('product_orders.download')->middleware('throttle:1,1');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     });
 
